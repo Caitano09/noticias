@@ -1,0 +1,29 @@
+<%- include ('partials/header') %>
+
+<form class="form-signin" method="post" action="/login">
+    <div class="text-center mb-4">
+        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
+            height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Entrar</h1>
+
+    </div>
+
+    <div class="form-label-group">
+        <label for="inputUsername">Username:</label>
+        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required
+            autofocus>
+    </div>
+
+    <div class="form-label-group">
+        <label for="inputPassword">Password:</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
+            required><br>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+    <a href="/facebook" class="btn btn-lg btn-primary btn-block" type="submit">Entrar com Facebook</a>
+    <a href="/google" class="btn btn-lg btn-primary btn-block" type="submit">Entrar com Google</a>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2019-2020</p>
+</form>
+
+<%- include ('partials/footer') %>
