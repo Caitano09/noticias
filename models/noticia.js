@@ -4,7 +4,8 @@ const { text } = require('express')
 const NoticiaSchema = moongose.Schema({
     title: String,
     content: String, 
-    category: String
+    category: String,
+    image: String
 })
 
 const Noticia = moongose.model('Noticia', NoticiaSchema)

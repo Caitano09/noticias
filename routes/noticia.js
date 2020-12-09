@@ -1,13 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const Noticia = require('../models/noticia')
+const noticias = require('../controllers/noticia')
 
-router.get('/', async (req, res) => {
-    const noticias = await Noticia.find({category: 'public'})
-    res.render('noticias/index', { noticias })
-})
+router.get('/', noticias.indexNoticias.bind(null, 'public') )
+router.get('/noticias/:id', noticias.getNoticia)
 
-const createNotice = async () => {
+/*const createNotice = async () => {
 
     const noticia = new Noticia({
         title: 'Notícia Pública ' + new Date().getTime(),
@@ -23,7 +21,7 @@ const createNotice = async () => {
     })
     await noticia2.save()
     console.log('Notice created')
-}
+}*/
 
 //createNotice()
 

@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
+const noticias = require('../controllers/noticia')
 
-router.get('/', (req, res) => {
-    res.render('index')
-})
+router.get('/', noticias.index)
+router.get('/noticias/:id', noticias.getNoticia)
 
 module.exports = router

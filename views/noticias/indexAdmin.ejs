@@ -12,15 +12,21 @@
     <% if (categoryNotice == 'public'){ tipoNoticia = 'Notícias Públicas' } %>
     <div class="col-lg-12 ">
       <h1 class="m-0 text-center"><%- tipoNoticia %></h1><br/>
+      <a href="/admin/noticias/create" class="btn btn-primary">Adicionar nova notícia</a>
       <div class="row">
         <% noticias.forEach(noticia =>{ %>
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4 m-0 text-center">
           <div class="card h-100 card2">
             <a href="teste"><img class="card-img-top" src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>"></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="/noticias/datail/<%- noticia._id %>"><%= noticia.title %></a>
-              </h4>
+                <a href="/admin/noticias/detail/<%- noticia._id %>"><%= noticia.title %></a>
+              </h4>              
+                <p>
+                  <a href="/admin/noticias/update/<%- noticia._id %>" class="btn btn-primary">Editar</a>
+                  <a href="/admin/noticias/delete/<%- noticia._id %>" class="btn btn-secondary"
+                    onclick="return confirm('Você realmente quer excluir?')">Excluir</a>
+                </p>            
             </div>
           </div>
         </div>

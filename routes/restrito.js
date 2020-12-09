@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Noticia = require('../models/noticia')
+const noticias = require('../controllers/noticia')
 
 router.use((req, res, next) => {
     if (req.isAuthenticated()) {
@@ -14,9 +14,7 @@ router.use((req, res, next) => {
 
 router.get('/', (req, res) => res.send('restrito'))
 
-router.get('/noticias', async (req, res) => {
-    const noticias = await Noticia.find({ category: 'private' })
-    res.render('noticias/restrito', { noticias })
-})
+router.get('/noticias', noticias.indexNoticias.bind(null, 'private'))
+router.get('/noticias/:id', noticias.getNoticia)
 
 module.exports = router

@@ -1,0 +1,48 @@
+<%- include ('../partials/header') %>
+<!-- Page Content -->
+<div class="container">
+
+  <br>
+  <form method="POST" enctype="multipart/form-data">
+    <header class="card-header">
+      <h4 class="card-title mt-2">Criar Nova Notícia
+        <a href="javascript:history.back()" class="btn btn-secondary">Voltar</a>
+      </h4>
+    </header><br>
+
+    <div>
+      <label for="inputName">Título</label>
+      <input type="text" class="form-control " id="title" name="title" placeholder="Título da Notícia">
+    </div><br>
+
+    <div class="form-group">
+      <label for="inputDescription">Conteúdo</label>
+      <textarea class="form-control " name="content" id="content" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+      <input type="hidden" class="form-control" id="image" name="image">
+    </div>
+
+    <div class="form-group">
+      <label for="inputAvailable">Imagem</label>
+      <input type="file" class="form-control" id="image" name="image">
+    </div>
+
+    <label for="categoria">Tipo da Notícia:</label>
+    <select class="form-control" name="category" id="category">      
+      <option value="public">Pública</option>
+      <option value="private">Privada</option>          
+    </select><br>
+
+
+    <button type="submit" class="btn btn-primary">Salvar notícia</button>
+  </form>
+
+</div>
+
+</div><br>
+
+<!-- /.container -->
+
+<%- include ('../partials/footer') %>

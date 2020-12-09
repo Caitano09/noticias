@@ -12,8 +12,6 @@ const restrito = require('./routes/restrito')
 const admin = require('./routes/admin')
 const auth = require('./routes/auth')
 const pages = require('./routes/pages')
-const Noticia = require('./models/noticia')
-const User = require('./models/user')
 const mongo = process.env.MONGODB || 'mongodb://localhost/noticias'
 
 app.set('views', path.join(__dirname, 'views'))
