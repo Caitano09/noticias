@@ -4,19 +4,8 @@
 
   <div class="row">
 
-    <div class="col-lg-3">
-
-      <h1 class="my-4"><img class="img-fluid" src="/images/logo.png" alt="DevShop-logo"></h1>
-      <div class="list-group">
-
-        <a href="/categoria/teste" class="list-group-item">teste</a>
-
-      </div>
-
-    </div>
-    <!-- /.col-lg-3 -->
     <% let id = 0 %>
-    <div class="col-lg-9">
+    <div class="col-lg-9 blocktext">
 
       <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -31,6 +20,9 @@
           <% noticias.forEach(noticia =>{ %>
           <div class="carousel-item <% if(id == 1){ %> active <% } %>">
             <img class="d-block img-fluid" src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="borda_texto"><%- noticia.title %></h2>
+            </div>
           </div>
           <% id++ %>
           <% }) %>
@@ -49,12 +41,12 @@
 
       <div class="row">
         <% noticias.forEach(noticia =>{ %>
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4 text-center">
           <div class="card h-100 card2">
-            <a href="teste"><img class="card-img-top" src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>"></a>
+            <a href="/admin/noticias/detail/<%- noticia._id %>"><img class="card-img-top" src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>"></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="/noticias/datail/<%- noticia._id %>"><%= noticia.title %></a>
+                <a href="/admin/noticias/detail/<%- noticia._id %>"><%= noticia.title %></a>
               </h4>
             </div>
           </div>

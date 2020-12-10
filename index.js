@@ -12,6 +12,7 @@ const restrito = require('./routes/restrito')
 const admin = require('./routes/admin')
 const auth = require('./routes/auth')
 const pages = require('./routes/pages')
+const busca = require('./routes/busca')
 const mongo = process.env.MONGODB || 'mongodb://localhost/noticias'
 
 app.set('views', path.join(__dirname, 'views'))
@@ -27,6 +28,7 @@ app.use('/', pages)
 app.use('/restrito', restrito)
 app.use('/noticias', noticias)
 app.use('/admin', admin)
+app.use('/search', busca)
 
 mongoose
     .connect(mongo, { useNewUrlParser: true, useUnifiedTopology: true })

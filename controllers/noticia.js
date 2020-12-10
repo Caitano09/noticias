@@ -78,6 +78,17 @@ const editarProcess = async (req, res) => {
     res.redirect('/admin/noticias')
 }
 
+const buscar = async (req, res) =>{
+    const noticias = await Noticia.find({ title: req.query.title })
+
+    if(req.query.role == 'admin'){
+        res.render('noticias/buscaAdmin', {noticias})
+    }else{
+        res.render('noticias/busca', {noticias})
+    }
+
+}
+
 module.exports = {
     index,
     indexNoticias,
@@ -86,5 +97,6 @@ module.exports = {
     novaProcess,
     excluir,
     editarForm,
-    editarProcess
+    editarProcess,
+    buscar
 }

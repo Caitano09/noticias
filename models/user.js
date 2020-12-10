@@ -13,7 +13,7 @@ const UserSchema = moongose.Schema({
     name: String,
     roles:{
         type: [String],
-        enum: ['restrito', 'admin']
+        enum: ['publico', 'restrito', 'admin']
     }
 })
 

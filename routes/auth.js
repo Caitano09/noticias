@@ -44,7 +44,7 @@ passport.use(new FacebookStrategy({
         const user = new User({
             name: profile.displayName,
             facebookId: profile.id,
-            roles: ['restrito']
+            roles: ['publico','restrito']
         })
         await user.save()
         done(null, user)
@@ -64,7 +64,7 @@ passport.use(new GoogleStrategy({
         const user = new User({
             name: profile.displayName,
             googleId: profile.id,
-            roles: ['restrito']
+            roles: ['publico','restrito']
         })
         await user.save()
         done(null, user)
@@ -90,7 +90,17 @@ router.get('/change-role/:role', (req, res) => {
             req.session.roles = req.params.role
         }
     }
-    res.redirect('/')
+    
+    if (req.params.role == 'admin'){
+        res.redirect('/admin/noticias')
+
+    }else if (req.params.role == 'restrito'){
+        res.redirect('/restrito/noticias')
+
+    }else if (req.params.role == 'publico'){
+        res.redirect('/noticias')
+    }
+    
 })
 
 router.get('/login', (req, res) => {
@@ -124,14 +134,14 @@ const createInitialUser = async () => {
         const user = new User({
             username: 'user1',
             password: '12345',
-            roles: ['restrito', 'admin']
+            roles: ['publico','restrito', 'admin']
         })
         await user.save()
 
         const user2 = new User({
             username: 'user2',
             password: '1234',
-            roles: ['restrito']
+            roles: ['publico', 'restrito']
         })
         await user2.save()
         console.log('Users created')

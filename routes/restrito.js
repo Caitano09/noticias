@@ -15,6 +15,6 @@ router.use((req, res, next) => {
 router.get('/', (req, res) => res.send('restrito'))
 
 router.get('/noticias', noticias.indexNoticias.bind(null, 'private'))
-router.get('/noticias/:id', noticias.getNoticia)
+router.get('/noticias/detail/:id', noticias.getNoticia)
 
 module.exports = router

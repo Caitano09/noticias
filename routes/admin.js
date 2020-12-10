@@ -32,5 +32,4 @@ router.get('/noticias/delete/:id', noticias.excluir)
 router.get('/noticias/update/:id', noticias.editarForm)
 router.post('/noticias/update/:id', upload.single('image'), noticias.editarProcess)
 
-
 module.exports = router
