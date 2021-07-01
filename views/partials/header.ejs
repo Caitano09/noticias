@@ -6,87 +6,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="../../../../favicon.ico">
 
-  <title>Starter Template for Bootstrap</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-  <!-- Bootstrap core CSS -->
-  <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
-  <!-- Custom styles for this template -->
-  <link href="/css/starter-template.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/footer.css">
+
+  <title>News</title>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="/">NOTÍCIAS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <% if(!locals.user){ %>
-          <li class="nav-item">
-            <a class="nav-link" href="/noticias">Notícias</a>
-          </li>
-        <% } %>
-        <% if(locals.user){ %>
-
-          <% if(locals.role === 'publico'){ %>
-            <li class="nav-item">
-              <a class="nav-link" href="/noticias">Notícias Públicas</a>
-            </li>
-          <% } %>
-
-          <% if(locals.role === 'restrito'){ %>
-            <li class="nav-item">
-              <a class="nav-link" href="/restrito/noticias">Notícias Restritas</a>
-            </li>
-          <% } %>
-
-        <% if(locals.role === 'admin'){ %>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/noticias">Notícias Administrativas</a>
-          </li>
-        <% } %>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"><%= locals.user.username || locals.user.name %></a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <% if (locals.user.roles.length > 1){ %>
-              <% locals.user.roles.forEach(role =>{ %>
-                <a class="dropdown-item" href="/change-role/<%- role %>"><%- role %></a>
-              <% }) %>
-            <% } %>
-            <a class="dropdown-item" href="/logout">Sair</a>
-          </div>
-        </li>
-        <% } else { %>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="/login" id="dropdown01">Entrar</a>
-         </li>
-        <% } %>
+  <aside class="aside">
+    <nav>
+      <h1>Notícias Recentes</h1>
+      <ul>
+        <li>Noticia1</li>
+        <li>Noticia2</li>
+        <li>Noticia3</li>
       </ul>
+    </nav>
+  </aside>
+
+  <header class="header">
+    
+    <a class="logo-text" href="/">News</a>
+
+    <button class="header-btnMenu" onclick="onClickMenu()">
+      <i class="fas fa-bars fa-2x"></i>
+      <span class="sr-only">Menu</span>
+    </button>
+    
+    <nav style="max-height: 0;" id="nav-menu" class="header-nav" >
+
       <% if(locals.user){ %>
-        <form method="GET" action="/search/noticias" class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search" name="title" id="title">
-          <input type="hidden" value="<%-role %>" name="role" id="role">       
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>>
+        <form method="GET" action="/search/noticias">
+          <input type="text" placeholder="Pesquisar" name="title" id="title" >
+          <input type="hidden" value="<%-role %>" name="role" id="role">
+        </form>
+
       <% } else { %>
-        <form method="GET" action="/search/noticias" class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search" name="title" id="title">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+        <form method="GET" action="/search/noticias">
+          <input type="text" placeholder="Pesquisar"  name="title" id="title">
           <input type="hidden" value="outro" name="role" id="role">
         </form>
+      <% } %>
+
+      <ul class="">
+        <% if(!locals.user){ %>
+          <li class="">
+            <a class="" href="/noticias">Notícias</a>
+          </li>
         <% } %>
-    </div>
-  </nav>
-  <div class="container">
+
+        <% if(locals.user){ %>
+
+          <% if(locals.role==='publico' ){ %>
+            <li class="">
+              <a class="" href="/noticias">Vendo Notícias Públicas</a>
+            </li>
+          <% } %>
+
+          <% if(locals.role==='restrito' ){ %>
+            <li class="">
+              <a class="" href="/restrito/noticias">Vendo Notícias Restritas</a>
+            </li>
+          <% } %>
+
+          <% if(locals.role==='admin' ){ %>
+            <li class="">
+              <a class="" href="/admin/noticias"> vendo Notícias Administrativas</a>
+            </li>
+          <% } %>
+
+          <li class="">
+
+            <div class="">
+              <% if (locals.user.roles.length> 1){ %>
+                <% locals.user.roles.forEach(role=>{ %>
+                  <a class="" href="/change-role/<%- role %>">Ver como <b><%- role %></b></a>
+                <% }) %>
+              <% } %>
+
+              <a>Logado como: <%= locals.user.username || locals.user.name %></a>
+              <a class="" href="/logout">Sair</a>
+            </div>
+          </li>
+        <% } else { %>
+          <li class="">
+            <a class="" href="/login">Entrar</a>
+          </li>
+        <% } %>
+      </ul>
+
+    </nav>
+  </header>

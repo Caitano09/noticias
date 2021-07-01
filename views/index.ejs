@@ -1,68 +1,20 @@
 <%- include ('partials/header') %>
-<!-- Page Content -->
-<div class="container">
+  <!-- Page Content -->
+  <div class="container">
+    <% noticias.forEach(noticia =>{ %>
+      <div class="news">
+        <a href="/admin/noticias/detail/<%- noticia._id %>">
 
-  <div class="row">
-
-    <% let id = 0 %>
-    <div class="col-lg-9 blocktext">
-
-      <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <% noticias.forEach(noticia =>{ %>
-          <li data-target="#carouselExampleIndicators" data-slide-to="<%-id %>" <% if(id == 0){ %> class="active" <% } %> ></li>
-          <% id++ %>
-          <% }) %>
-          <% id = 0 %>         
-        </ol>
-
-        <div class="carousel-inner" role="listbox">
-          <% noticias.forEach(noticia =>{ %>
-          <div class="carousel-item <% if(id == 1){ %> active <% } %>">
-            <img class="d-block img-fluid" src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>">
-            <div class="carousel-caption d-none d-md-block">
-              <h2 class="borda_texto"><%- noticia.title %></h2>
-            </div>
+          <img src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>">         
+          <div class="news-content">
+            <h2><%= noticia.title %></h2>
+            <p><%= noticia.content %></p>
           </div>
-          <% id++ %>
-          <% }) %>
-          <% id = 0 %> 
-        </div>
 
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
         </a>
       </div>
-
-      <div class="row">
-        <% noticias.forEach(noticia =>{ %>
-        <div class="col-lg-4 col-md-6 mb-4 text-center">
-          <div class="card h-100 card2">
-            <a href="/admin/noticias/detail/<%- noticia._id %>"><img class="card-img-top" src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>"></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="/admin/noticias/detail/<%- noticia._id %>"><%= noticia.title %></a>
-              </h4>
-            </div>
-          </div>
-        </div>
-        <% }) %>
-
-      </div>
-      <!-- /.row -->
-
-    </div>
-    <!-- /.col-lg-9 -->
-
+      <% }) %>
   </div>
-  <!-- /.row -->
-
-</div>
-<!-- /.container -->
+  <!-- /.container -->
 
 <%- include ('partials/footer') %>

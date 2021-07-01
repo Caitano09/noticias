@@ -1,48 +1,35 @@
 <%- include ('../partials/header') %>
-<!-- Page Content -->
-<div class="container">
+  <!-- Page Content -->
+  <div class="container">
 
-  <br>
-  <form method="POST" enctype="multipart/form-data">
-    <header class="card-header">
-      <h4 class="card-title mt-2">Criar Nova Notícia
-        <a href="javascript:history.back()" class="btn btn-secondary">Voltar</a>
-      </h4>
-    </header><br>
+    <br>
+    <form class="form-signin" method="POST" enctype="multipart/form-data">
+      <h1>Criar Nova Notícia</h1>
 
-    <div>
       <label for="inputName">Título</label>
-      <input type="text" class="form-control " id="title" name="title" placeholder="Título da Notícia">
-    </div><br>
+      <input type="text" id="title" name="title" placeholder="Título da Notícia"><br>
 
-    <div class="form-group">
       <label for="inputDescription">Conteúdo</label>
-      <textarea class="form-control " name="content" id="content" cols="30" rows="10"></textarea>
-    </div>
+      <textarea name="content" id="content" cols="30" rows="10"></textarea>
 
-    <div>
-      <input type="hidden" class="form-control" id="image" name="image">
-    </div>
+      <input type="hidden" id="image" name="image">
 
-    <div class="form-group">
       <label for="inputAvailable">Imagem</label>
-      <input type="file" class="form-control" id="image" name="image">
-    </div>
+      <input type="file" class="form-control" id="image" name="image"><br>
 
-    <label for="categoria">Tipo da Notícia:</label>
-    <select class="form-control" name="category" id="category">      
-      <option value="public">Pública</option>
-      <option value="private">Privada</option>          
-    </select><br>
+      <label for="categoria">Tipo da Notícia:</label>
+      <select class="form-control" name="category" id="category">
+        <option value="public">Pública</option>
+        <option value="private">Privada</option>
+      </select><br>
 
+      <button class="button" type="submit">Salvar notícia</button>
+    </form>
 
-    <button type="submit" class="btn btn-primary">Salvar notícia</button>
-  </form>
+  </div>
 
-</div>
+  </div><br>
 
-</div><br>
+  <!-- /.container -->
 
-<!-- /.container -->
-
-<%- include ('../partials/footer') %>
+  <%- include ('../partials/footer') %>

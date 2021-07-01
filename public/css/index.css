@@ -1,0 +1,107 @@
+.container{
+    padding-top: 37px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+    max-width: 980px;
+}
+
+.news{
+    margin-top: 2.5em;
+}
+
+.news:hover{
+    outline: 5px solid #63c6ae;
+    outline-offset: -5px;
+}
+
+.news a{
+    text-decoration: none;
+}
+
+.news img{
+    width: 100%;
+}
+
+.news-content{
+    margin-top: 0;
+    text-align: center;
+    padding: 0 25px 10px;
+    border-left: 1px solid #dbe1e7;
+}
+
+.news-content h2{
+    padding-top: 0;
+    margin-top: 0;
+    color: #737c85;
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.news-content p{
+    color: #929da5;
+    font-size: 14px;
+}
+
+.news:hover h2, 
+.news:hover p{
+    color:#63c6ae;
+}
+
+.form-signin{
+    text-align: center;
+}
+
+.form-signin label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form-signin input, textarea, select{   
+    width: 80%;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #606060;  
+    margin: 5px 0 20px 0;  
+}
+
+.form-signin input:focus{
+    outline: 0;
+}
+
+.button{
+    color: black;
+    
+    text-decoration: none;
+    text-align: center;
+    border-radius: 25px;
+    padding: 10px;
+    border: 1px solid #606060;
+    margin: 5px;
+    transition: background-color 1s;
+}
+
+.button:hover{
+    background-color:  #606060;
+}
+
+.button-facebook{
+    color: blue; 
+    border: 1px solid blue;
+}
+
+.button-google{
+    color: red; 
+    border: 1px solid red;
+}
+
+.button-google:hover{
+    background-color:  red;
+}
+
+.button-facebook:hover{
+    background-color:  blue;
+}
+
+
