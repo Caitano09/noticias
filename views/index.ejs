@@ -1,6 +1,39 @@
 <%- include ('partials/header') %>
   <!-- Page Content -->
   <div class="container">
+
+    <% let id = 0 %>
+    <% let idFinal = noticias.length - 1 %>
+    <div class="slider">
+      <% noticias.forEach(noticia =>{ %>          
+        <div class="slide<% if(id == 0){ %> active <% } %>">
+          <img src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>">
+          <div class="info">
+            <h2><%- noticia.title %></h2>
+          </div>
+        </div>  
+        
+        <% if(id == idFinal){ %>
+          <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+          </div>
+        <% } %>
+
+        <% id++ %>
+      <% }) %>
+      <% id = 0 %> 
+    </div>
+      <div class="navigation-visibility">      
+        <% noticias.forEach(noticia =>{ %> 
+            <div class="slide-icon<% if(id == 0){ %> active <% } %>"></div>
+          <% id++ %>
+        <% }) %>
+      </div>
+      <% id = 0 %> 
+
+    <!--------------->
+
     <% noticias.forEach(noticia =>{ %>
       <div class="news">
         <a href="/admin/noticias/detail/<%- noticia._id %>">
