@@ -10,18 +10,5 @@ const onClickMenu = () =>{
         element.style.maxHeight = '0px'
     }
 }
-let TamanhoDoc = document.documentElement.scrollHeight
-let TamanhoTela = document.documentElement.clientHeight
 
-console.log('doc: ', TamanhoDoc)
-console.log('tela: ', TamanhoTela)
-if(TamanhoDoc > TamanhoTela){
-    console.log('Tem scroll');
-  } else {
-    console.log('Não tem scroll');
-    const element = document.querySelector('.footer')
-    element.style.position = "absolute"
-    element.style.bottom = 0
-    element.style.width = '95%'
-  }
   
