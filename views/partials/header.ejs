@@ -24,41 +24,28 @@
 
 <body>
 
-  <aside class="aside">
-    <nav>
-      <h1>Notícias Recentes</h1>
-      <ul>
-        <li>Noticia1</li>
-        <li>Noticia2</li>
-        <li>Noticia3</li>
-      </ul>
-    </nav>
-  </aside>
-
-  <header class="header">
-    
+  <header class="header">   
     <a class="logo-text" href="/">News</a>
 
-    <button class="header-btnMenu" onclick="onClickMenu()">
-      <i class="fas fa-bars fa-2x"></i>
-      <span class="sr-only">Menu</span>
-    </button>
-    
-    <nav style="max-height: 0;" id="nav-menu" class="header-nav" >
-
+   <div class="logo">
       <% if(locals.user){ %>
-        <form method="GET" action="/search/noticias">
+        <form class="form-pesquisa" method="GET" action="/search/noticias">
           <input type="text" placeholder="Pesquisar" name="title" id="title" >
           <input type="hidden" value="<%-role %>" name="role" id="role">
         </form>
-
       <% } else { %>
-        <form method="GET" action="/search/noticias">
+        <form class="form-pesquisa" method="GET" action="/search/noticias">
           <input type="text" placeholder="Pesquisar"  name="title" id="title">
           <input type="hidden" value="outro" name="role" id="role">
         </form>
       <% } %>
 
+      <button class="header-btnMenu" onclick="onClickMenu()">
+        <i class="fas fa-bars fa-2x"></i>
+        <span class="sr-only">Menu</span>
+      </button>
+    </div>    
+    <nav style="max-height: 0;" id="nav-menu" class="header-nav" >
       <ul class="">
         <% if(!locals.user){ %>
           <li class="">
@@ -87,15 +74,17 @@
           <% } %>
 
           <li class="">
+            <a onclick="onClickDropdownMenu()">
+              <%= locals.user.username || locals.user.name %>
+              <i class="fas fa-sort-down"></i>
+            </a>
 
-            <div class="">
+            <div id="dropdown-menu" style="max-height: 0;">
               <% if (locals.user.roles.length> 1){ %>
                 <% locals.user.roles.forEach(role=>{ %>
                   <a class="" href="/change-role/<%- role %>">Ver como <b><%- role %></b></a>
                 <% }) %>
               <% } %>
-
-              <a>Logado como: <%= locals.user.username || locals.user.name %></a>
               <a class="" href="/logout">Sair</a>
             </div>
           </li>

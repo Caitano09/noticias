@@ -1,3 +1,7 @@
+.aside{
+  display: none;
+}
+
 .container{
     padding-top: 37px;
     margin-right: auto;
@@ -8,7 +12,9 @@
 }
 
 .news{
-    margin-top: 2.5em;
+  border-radius: 5%;
+  box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+  margin-top: 2.5em; 
 }
 
 .news:hover{
@@ -22,6 +28,7 @@
 
 .news img{
     width: 100%;
+    border-radius: 5%;
 }
 
 .news-content{
@@ -112,6 +119,7 @@
     overflow: hidden;
     border-radius: 10px;
     margin-top: 40px;
+    box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
 }
 
 .slider .slide{
@@ -126,7 +134,7 @@
 
 .slider .slide.active{
   clip-path: circle(150% at 0 50%);
-  transition: 1s;
+  transition: 2s;
 }
 
 .slider .slide img{
@@ -138,7 +146,7 @@
 
 .slider .slide .info{
     position: absolute;
-    top: 0;
+    bottom: 10%;
     color: #222;
     background: rgba(255, 255, 255, 0.3);
     width: 75%;
@@ -208,3 +216,63 @@
   .navigation-visibility .slide-icon.active{
     background: #4285F4;
   }
+
+  @media screen and (min-width: 768px) {
+    .slider{
+      margin-left: 15%;
+      width: 70%;
+    }
+
+    .allNews{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px
+    }
+
+  }
+
+  @media screen and (min-width: 1024px) {
+    .container{
+      margin-left: 25%;
+    }
+    .aside{
+      display: block;
+      position: absolute;
+      background-color: #f1f1fa;
+      width: 25%;
+      margin-top: 74px;
+    }
+
+    .aside ul{
+      margin: 0;
+      padding: 0;
+    }
+  
+  .aside li{
+      list-style-type: none;
+    
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 1);
+  }
+  
+  .aside a{
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #586165;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: block;
+      padding: 1.5625rem 0;
+      transition: 0.8s ease;
+  }
+  
+  .aside a:hover{
+      color: #63c6ae;   
+  }
+  
+    
+  }
+  
+
+
+  

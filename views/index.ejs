@@ -1,5 +1,18 @@
 <%- include ('partials/header') %>
   <!-- Page Content -->
+  
+  <aside class="aside">
+    <nav>
+      <ul>
+        <% noticias.forEach(noticia =>{ %>  
+          <li><a href="/admin/noticias/detail/<%- noticia._id %>">
+            <%- noticia.title %>
+          </a></li>
+        <% }) %>
+      </ul>
+    </nav>
+  </aside>
+
   <div class="container">
 
     <% let id = 0 %>
@@ -33,7 +46,7 @@
       <% id = 0 %> 
 
     <!--------------->
-
+<div class="allNews">
     <% noticias.forEach(noticia =>{ %>
       <div class="news">
         <a href="/admin/noticias/detail/<%- noticia._id %>">
@@ -47,6 +60,7 @@
         </a>
       </div>
       <% }) %>
+    </div>
   </div>
   <!-- /.container -->
 

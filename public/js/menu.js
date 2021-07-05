@@ -1,14 +1,42 @@
-const onClickMenu = () =>{
-    const element = document.getElementById('nav-menu')
+const nav = document.getElementById('nav-menu')
+const dropdownMenu = document.getElementById('dropdown-menu')
 
-    if(element.style.maxHeight == '0px'){
-        const _top = element.getBoundingClientRect().top + 'px'
+const onClickMenu = () =>{
+
+    if(nav.style.maxHeight == '0px'){
+        const _top = nav.getBoundingClientRect().top + 'px'
         const maxHeight = 'calc(100vh - '+ _top+')'
-        element.style.maxHeight = maxHeight
+        nav.style.maxHeight = maxHeight
     }
     else{
-        element.style.maxHeight = '0px'
+        nav.style.maxHeight = '0px'
     }
 }
+
+const onClickDropdownMenu = () =>{
+    console.log(dropdownMenu.style)
+    if(dropdownMenu.style.maxHeight == '0px'){
+        const _top = dropdownMenu.getBoundingClientRect().top + 'px'
+        const maxHeight = 'calc(100vh - '+ _top+')'
+        dropdownMenu.style.maxHeight = maxHeight
+    }
+    else{
+        dropdownMenu.style.maxHeight = '0px'
+    }
+}
+
+if(window.innerWidth >= 768){
+    nav.removeAttribute("style")
+}else{
+    nav.style.maxHeight = '0px'      
+}
+
+window.addEventListener("resize", e =>{
+    if(window.innerWidth >= 768){
+        nav.removeAttribute("style")
+    }else{
+        nav.style.maxHeight = '0px'      
+    }
+})
 
   
