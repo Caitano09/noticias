@@ -71,9 +71,9 @@ const editarProcess = async (req, res) => {
     }
 
     noticia.title = req.body.title
-    noticia.content = req.body.content
+    noticia.content = req.body.content.replace(/(?:\r\n|\r|\n)/g, '<br>');//Salvar quebra de linha
     noticia.category = req.body.category
-
+    console.log(noticia.content)
     await noticia.save()
     res.redirect('/admin/noticias')
 }
