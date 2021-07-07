@@ -18,12 +18,14 @@
 
 .news{
   display: flex;
+  flex-direction: column;
   align-self: center;
   justify-self: center;
   position: relative;
   border-radius: 5%;
   /*box-shadow: 0 5px 25px rgb(1 1 1 / 20%);*/
   margin-top: 2.5em; 
+  margin-bottom: 20px;
   width: 90%;
   height: 200px;
 }
@@ -51,6 +53,7 @@
     margin-top: 0;
     text-align: center;
     padding: 0 25px 10px;
+    width: 100%;
 }
 
 .news-content h2{
@@ -69,16 +72,25 @@
 }
 
 .news-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 30px;
   height: 100%;
   width: 100%;
 }
 
 .news-details img{
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 300px;
+  max-height: 300px;
   width: auto;
   height: auto;
+}
+
+.button-admin{
+  margin-top: 20px;
+  text-align: center;
 }
 
 .form-signin{
@@ -263,7 +275,11 @@
       margin-left: 25%;
     }
     .container-details{
-      margin: 0;
+      margin: auto;
+    }
+    .news-details img{
+      max-width: 500px;
+      max-height: 500px;
     }
     .aside{
       display: block;

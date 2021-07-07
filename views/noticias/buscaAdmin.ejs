@@ -2,27 +2,27 @@
   <!-- Page Content -->
 
   <div class="container"><br />
-
     <h1>Notícias Encontradas:</h1>
-    <% noticias.forEach(noticia=>{ %>
-      <div class="news">
+    <div class="allNews">
+      <% noticias.forEach(noticia=>{ %>
+        <div class="news">
 
-        <a href="/noticias/<%- noticia._id %>">
-          <img src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>">
+          <a href="/admin/noticias/detail/<%- noticia._id %>">
+            <img src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>">
 
-          <div class="news-content">
-            <h2><%= noticia.title %></h2>
-            <p><%= noticia.content %></p>
-          </div>
-        </a>
-        <p>
-          <a class="button" href="/admin/noticias/update/<%- noticia._id %>">Editar</a>
-          <a class="button button-google" href="/admin/noticias/delete/<%- noticia._id %>"
-            onclick="return confirm('Você realmente quer excluir?')">Excluir</a>
-        </p>
+            <div class="news-content">
+              <h2><%= noticia.title %></h2>
+            </div>
+          </a>
+          <p class="button-admin">
+            <a class="button" href="/admin/noticias/update/<%- noticia._id %>">Editar</a>
+            <a class="button button-google" href="/admin/noticias/delete/<%- noticia._id %>"
+              onclick="return confirm('Você realmente quer excluir?')">Excluir</a>
+          </p>
+        </div>
 
-      </div>
-      <% }) %>
+        <% }) %>
+    </div>
   </div>
 
   <%- include ('../partials/footer') %>

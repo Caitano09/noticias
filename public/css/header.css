@@ -10,6 +10,12 @@ body{
     line-height: 1.4;
 }
 
+h1, h2{
+    text-align: center;
+}
+
+
+
 .header{
     background-color: #fff;
     width: 100%;

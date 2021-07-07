@@ -8,21 +8,22 @@
     <% if (categoryNotice == 'public'){ tipoNoticia = 'Notícias Públicas' } %>
 
     <br/><h1><%- tipoNoticia %></h1>
-    <% noticias.forEach(noticia =>{ %>
-      <div class="news">
-        
-        <a href="/admin/noticias/detail/<%- noticia._id %>">
+    <div class="allNews">
+      <% noticias.forEach(noticia =>{ %>
+        <div class="news">
+          
+          <a href="/admin/noticias/detail/<%- noticia._id %>">
 
-          <img src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>">        
-          <div class="news-content">
-            <h2><%= noticia.title %></h2>
-            <p><%= noticia.content %></p>
-          </div>
+            <img src="/images/notices/<%-noticia.image %>" alt="<%-noticia.title %>">        
+            <div class="news-content">
+              <h2><%= noticia.title %></h2>
+            </div>
 
-        </a>
-      </div>
+          </a>
+        </div>
     
-    <% }) %>
+      <% }) %>
+    </div>
   </div>
 
 <%- include ('../partials/footer') %>
