@@ -19,7 +19,7 @@ const upload = multer({storage})
         if (req.user.roles.indexOf('admin') >= 0) {
             return next()
         }
-        res.redirect('/')
+        //res.redirect('/')
     }
     res.redirect('/login')
 })*/
