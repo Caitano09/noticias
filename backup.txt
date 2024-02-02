@@ -8,7 +8,7 @@ const dump = spawn('mysqldump', [
     '-u',
     'root',
     '-p0000',
-    'mais_atacado',
+    'database_name',
 ])
 
 dump
