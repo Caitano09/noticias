@@ -1,0 +1,10 @@
+FORMATAR ARQUIVO
+
+1)mudar enconding (UTF-* ou western ISO 8859-1) para acentos
+1) ctrl+h (replace)
+2) \n --- ''
+3)  \t --- ' '
+4) '  ' --- ' ' (repeat until 0)
+5) ' ------ \'
+6) subistituir dados (cliente, representante cnpj)
+
